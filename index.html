@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Add marked library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Add highlight.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Resume Analyzer</h1>
+            <p>Upload your resume and get detailed insights and recommendations</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2088/2088470.png" alt="Upload Icon">
+                    <h3>Drag & Drop your resume here</h3>
+                    <p>or</p>
+                    <input type="file" id="fileInput" accept=".pdf" hidden>
+                    <button class="upload-btn" onclick="document.getElementById('fileInput').click()">Browse Files</button>
+                    <p class="file-type">Supported format: PDF</p>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-top-row">
+                    <div class="score-card">
+                        <h2>Resume Score</h2>
+                        <div class="score-circle">
+                            <span id="resumeScore">0</span>
+                            <span class="score-label">/100</span>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h2>Extracted Information</h2>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Name:</label>
+                                <span id="extractedName">-</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Email:</label>
+                                <span id="extractedEmail">-</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Phone:</label>
+                                <span id="extractedPhone">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-bottom-row">
+                    <div class="analysis-card">
+                        <h2>Resume Analysis</h2>
+                        <div id="resumeAnalysis" class="analysis-content markdown-content">
+                            <!-- Analysis content will be inserted here -->
+                        </div>
+                    </div>
+
+                    <div class="recommendations-card">
+                        <h2>Recommended Courses</h2>
+                        <div id="courseRecommendations" class="recommendations-content">
+                            <!-- Course recommendations will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+            <div class="loader"></div>
+            <p>Analyzing your resume...</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
